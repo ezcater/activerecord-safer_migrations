@@ -8,6 +8,7 @@ module ActiveRecord
   module SaferMigrations
     @default_lock_timeout = 750
     @default_statement_timeout = 1500
+    @dump_lock_queue = false
 
     def self.default_lock_timeout
       @default_lock_timeout
@@ -23,6 +24,14 @@ module ActiveRecord
 
     def self.default_statement_timeout=(timeout_ms)
       @default_statement_timeout = timeout_ms
+    end
+
+    def self.dump_lock_queue
+      @dump_lock_queue
+    end
+
+    def self.dump_lock_queue=(value)
+      @dump_lock_queue = value
     end
 
     def self.load
